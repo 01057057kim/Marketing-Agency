@@ -26,6 +26,132 @@ body {
     background-color: white;
 }
 
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #000000;
+    opacity: 70%;
+    z-index: 5000;
+    display: none;
+}
+
+.hamburger {
+    min-height: 100vh;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background-color: #FFFFFF;
+    z-index: 10000;
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 30px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.hamburger-header {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    margin-bottom: 20px;
+}
+
+.hamburger-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.hamburger-close:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+}
+
+.hamburger-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hamburger-container a:hover{
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+    color: var(--secondary);
+}
+
+.hamburger-container ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+.hamburger-container li {
+    width: 100%;
+    text-align: center;
+}
+
+.hamburger-container a {
+    font-size: 20px;
+    font-weight: 500;
+    display: block;
+    padding: 10px 0;
+}
+
+.hamburger-container .cta-btn, .cta-btn1{
+    padding: 16px 40px;
+    font-size: 18px;
+    font-weight: medium;
+}
+
+.hamburger-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10001;
+}
+
+.hamburger-toggle span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    margin: 6px 0;
+    background-color: #000000;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.menu-active .menu-overlay {
+    display: block;
+}
+
+.menu-active .hamburger {
+    display: flex;
+}
+
+.menu-active .hamburger-toggle span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.menu-active .hamburger-toggle span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-active .hamburger-toggle span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
 
 .nav-container,
 .partners-container,
@@ -110,6 +236,7 @@ body {
 
 
 .cta-btn,
+.cta-btn1,
 .hero-form button,
 .help-confirm button {
     background-color: var(--secondary);
@@ -330,7 +457,6 @@ main {
     margin-right: 50px;
 }
 
-.commitments-desc,
 .howitworks-desc {
     display: flex;
     flex-direction: column;
@@ -352,6 +478,14 @@ main {
     line-height: 24px;
     display: flex;
     align-items: center;
+}
+.hamburger-container a:hover,
+.bottom-wrapper a:hover,
+.learn-more a:hover,
+.more-faq a:hover{
+    transform: translateY(-2px);
+    opacity: 70%;
+    transition: all 0.3s ease;
 }
 
 .learn-more a svg,
@@ -582,6 +716,7 @@ main {
 }
 
 /* Testimonial section */
+
 .testimonial {
     justify-content: center;
     min-height: 500px;
@@ -818,7 +953,7 @@ main {
 
 .bottom-wrapper button {
     width: 100%;
-    max-width: auto;
+
     height: 64px;
 }
 
@@ -865,13 +1000,72 @@ footer {
     gap: 15px;
 }
 
-/* Mobile Menu Button */
-.mobile-menu-button {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
+input:hover {
+    box-shadow: 0 0 0 2px rgba(52, 97, 255, 0.4);
+    transition: all 0.3s ease;
 }
+
+a:hover {
+    color: var(--secondary);
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.cta-btn:hover,
+.hero-form button:hover,
+.help-confirm button:hover,
+.ourwork-container button:hover,
+.ourteam-container button:hover,
+.cta-banner2-confirm button:hover,
+.bottom-wrapper button:hover {
+    background-color: #2348d1; 
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(52, 97, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.cta-banner-confirm button:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.testimonial-container .right:hover {
+    background-color: #2348d1;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+.testimonial-container .left:hover {
+    background-color: #ebedf9;
+    color: rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+.help-container-faq button:hover {
+    background-color: #2348d1;
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+.cta-btn,
+.hero-form button,
+.help-confirm button,
+input,
+a,
+.ourwork-container button,
+.ourteam-container button,
+.cta-banner-confirm button,
+.cta-banner2-confirm button,
+.bottom-wrapper button,
+.testimonial-container .right,
+.testimonial-container .left,
+.help-container-faq button {
+    transition: all 0.3s ease;
+}
+
 
 .hero-image-container img,
 .cta-banner2-info img,
@@ -983,6 +1177,7 @@ footer {
         max-width: 960px;
         padding: 40px 20px;
         min-height: 550px;
+        text-align: center;
     }
 
     .hero-form input{
@@ -1126,6 +1321,22 @@ footer {
         --section-title-desktop: 42px;
     }
     
+    .hamburger-toggle {
+        display: block;
+    }
+    
+    .nav-container ul {
+        display: none;
+    }
+    
+    .cta-btn{
+        display: none;
+    }
+    
+    .hamburger {
+        width: 40%;
+    }
+    
     .nav-container,
     .partners-container,
     .commitments-container,
@@ -1151,138 +1362,6 @@ footer {
     .ourteam-container,
     .help-container,
     .bottom-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .commitments-text span,
-    .howitworks-text span,
-    .ourwork-desc span,
-    .cta-banner-desc span,
-    .ourteam-container span,
-    .testimonial-desc span,
-    .revenue h3,
-    .audience h4,
-    .trust h5,
-    .awards h6,
-    .help-faq span {
-        margin: 0 auto;
-        text-align: center;
-        width: 100%;
-    }
-    
-    .hero-text p,
-    .commitments-text p,
-    .howitworks-text p,
-    .howitworks-info p,
-    .ourwork-desc p,
-    .ourteam-container p,
-    .help-faq p,
-    .revenue p,
-    .audience p,
-    .trust p,
-    .awards p {
-        margin: 0 auto;
-        text-align: center;
-        width: 100%;
-    }
-    
-    .learn-more,
-    .more-faq {
-        justify-content: center;
-    }
-    
-    .cta-banner-desc>div,
-    .cta-banner2-desc>div {
-        grid-template-columns: 1fr;
-        padding: 0 40px;
-        text-align: center;
-    }
-    
-    .cta-banner-desc span,
-    .cta-banner2-desc span {
-        margin: 0 auto;
-    }
-    
-    .cta-banner-confirm,
-    .cta-banner2-confirm {
-        align-items: center;
-    }
-    
-    .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    
-    .hero-text h1 {
-        margin: 0 auto 20px;
-    }
-    
-    .commitments-info>div {
-        grid-template-columns: 1fr;
-    }
-    
-    .revenue {
-        margin-right: 0;
-    }
-    
-    .amelia,
-    .jacob,
-    .jacob2 {
-        min-width: 220px;
-        padding: 20px;
-    }
-}
-
-/* Small (sm): 576px - 767px */
-@media (max-width: 767px) and (min-width: 576px) {
-
-    :root {
-        --h1-tablet: 42px;
-        --section-title-mobile: 32px;
-        --body-text-mobile: 15px;
-    }
-
-    .nav-container,
-    .partners-container,
-    .commitments-container,
-    .howitworks-container,
-    .ourwork-container,
-    .cta-banner-container,
-    .ourteam-container,
-    .testimonial-container,
-    .cta-banner2-container,
-    .help-container,
-    .bottom-container,
-    .footer-container {
-        max-width: 540px;
-        padding: 0 15px;
-    }
-
-    .navbar {
-        height: 70px;
-    }
-
-    .nav-container .logo,
-    .bottom-wrapper .logo {
-        font-size: 22px;
-    }
-
-    .nav-container ul {
-        display: none;
-    }
-
-    .mobile-menu-button {
-        display: block;
-    }
-
-    .cta-btn {
-        padding: 10px 16px;
-        font-size: 14px;
-    }
-
-    .hero {
-        max-width: 540px;
-        padding: 30px 15px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1290,77 +1369,13 @@ footer {
         gap: 30px;
     }
 
-    .hero-text {
-        order: 1;
-        width: 100%;
-    }
-
-    .hero-text h1 {
-        font-size: var(--h1-tablet);
-        margin: 0 auto 20px;
-    }
-
-    .hero-image-container {
-        order: 2;
-        width: 100%;
-    }
-
-    .hero-form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    .hero-form input {
-        width: 100%;
-        max-width: 300px;
-        margin-right: 0;
-        margin-bottom: 12px;
-    }
-
-    .hero-form button {
-        width: 100%;
-        max-width: 300px;
-    }
-
-    .partners-container {
-        height: auto;
-        padding: 40px 15px;
-    }
-
-    .partners h2 {
-        font-size: 26px;
-        text-align: center;
-    }
-
-    .partners-image ul {
-        justify-content: center;
-    }
-
-    .partners-image li {
-        min-width: 100px;
-    }
-
-    .commitments-container,
-    .howitworks-container,
-    .ourteam-container,
-    .help-container,
-    .bottom-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 30px;
-    }
-
-    .commitments-text,
+   
     .howitworks-text p {
         max-width: 100%;
         text-align: center;
     }
 
-    .commitments-text span,
+   
     .ourwork-desc span,
     .cta-banner-desc span,
     .ourteam-container span,
@@ -1409,36 +1424,72 @@ footer {
         align-items: center;
     }
 
-    .cta-banner-desc,
-    .cta-banner2-desc {
+    .cta-banner-desc{
         height: 300px;
         object-fit: scale-down;
     }
 
-    .cta-banner-desc>div,
-    .cta-banner2-desc>div {
+    .cta-banner2-desc {
+        height: auto;
+        position: relative;
+    }
+    
+    .cta-banner2-desc > img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+    }
+    
+    .cta-banner2-info {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        padding: 30px 20px;
+    }
+    
+    .cta-banner2-confirm {
+        align-items: flex-start;
+        text-align: left;
+    }
+    
+    .cta-banner2-info > div:last-child {
+        margin-top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .cta-banner2-info > div:last-child img {
+        max-width: 100%;
+        height: auto;
+        max-height: 200px;
+        object-fit: contain;
+    }
+    
+    .cta-banner-desc>div {
         grid-template-columns: 1fr;
         padding: 30px 20px;
         text-align: center;
     }
-
-    .cta-banner-desc span,
     .cta-banner2-desc span {
+        font-size: var(--section-title-mobile);
+    }
+    .cta-banner-desc span{
         max-width: 100%;
         margin: 0 auto;
     }
 
-    .cta-banner-confirm,
-    .cta-banner2-confirm {
+    .cta-banner-confirm {
         align-items: center;
     }
 
     .cta-banner-confirm p {
         max-width: 100%;
-    }
-
-    .cta-banner2-info>div:last-child {
-        margin-top: 20px;
     }
 
     .ourteam-wrapper {
@@ -1472,18 +1523,22 @@ footer {
 
     .help-container-faq {
         width: 100%;
+        margin-bottom: 50px;
     }
 
     .help-confirm {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
+        justify-content: center;
+        margin-bottom: 25px;
     }
 
     .help-confirm input {
-        max-width: 100%;
-        margin-right: 0;
-        margin-bottom: 12px;
+        width: 80%;         
+        max-width: 400px;    
+        margin: 0 auto;     
+        display: block;      
     }
 
     .more-faq {
@@ -1492,22 +1547,102 @@ footer {
 
     .bottom-wrapper {
         text-align: center;
+        margin-bottom: 50px;
     }
 
     .bottom-container table {
         margin: 0 auto;
     }
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .hero-image-container {
+        order: 1;
+        margin-bottom: 40px;
+    }
+    
+    .hero-content {
+        order: 2;
+    }
+    
+    .hero-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .hero-form input {
+        width: 100%;
+        max-width: 400px;
+        margin-right: 0;
+    }
+    
+    .hero-form button {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .hero {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .hero-image-container {
+        order: 1;
+        margin-bottom: 40px;
+    }
+    
+    .hero-content {
+        order: 2;
+    }
+    
+    .hero-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .hero-form input {
+        width: 100%;
+        max-width: 400px;
+        margin-right: 0;
+    }
+    
+    .hero-form button {
+        width: 100%;
+        max-width: 400px;
+    }
 }
 
-/* Extra Small (xs): 0 - 575px */
-@media (max-width: 575px) {
-
+/* Small (sm): 576px - 767px */
+@media (max-width: 767px) and (min-width: 576px) {
     :root {
-        --h1-mobile: 36px;
-        --section-title-mobile: 28px;
-        --body-text-mobile: 14px;
+        --h1-tablet: 42px;
+        --section-title-mobile: 32px;
+        --body-text-mobile: 15px;
     }
-
+    
+    .hamburger-toggle {
+        display: block;
+    }
+    
+    .nav-container ul {
+        display: none;
+    }
+    
+    .cta-btn{
+        display: none;
+    }
+    
+    .hamburger {
+        width: 40%;
+    }
+    
     .nav-container,
     .partners-container,
     .commitments-container,
@@ -1520,126 +1655,30 @@ footer {
     .help-container,
     .bottom-container,
     .footer-container {
+        max-width: 540px;
         padding: 0 15px;
     }
-
-
+    
     .navbar {
-        height: 60px;
+        height: 70px;
     }
 
     .nav-container .logo,
     .bottom-wrapper .logo {
-        font-size: 20px;
+        font-size: 22px;
     }
-
-    .nav-container ul {
-        display: none;
-
-    }
-
+    
     .mobile-menu-button {
         display: block;
     }
-
-    .cta-btn {
-        padding: 8px 14px;
-        font-size: 13px;
-    }
-
-
+    
     .hero {
+        max-width: 540px;
         padding: 30px 15px;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 20px;
     }
-
-    .hero-text {
-        order: 1;
-        width: 100%;
-    }
-
-    .hero-text h1 {
-        font-size: var(--h1-mobile);
-        margin: 0 auto 15px;
-    }
-
-    .hero-text p {
-        font-size: var(--body-text-mobile);
-        margin-bottom: 20px;
-    }
-
-    .hero-image-container {
-        order: 2;
-        width: 100%;
-    }
-
-    .hero-form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    .hero-form input {
-        width: 100%;
-        max-width: 280px;
-        margin-right: 0;
-        margin-bottom: 10px;
-        padding: 14px 16px;
-        font-size: 14px;
-    }
-
-    .hero-form button {
-        width: 100%;
-        max-width: 280px;
-        padding: 14px 16px;
-        font-size: 14px;
-    }
-
-
-    .partners {
-        padding: 30px 0;
-    }
-
-    .partners-container {
-        height: auto;
-        padding: 0 15px;
-    }
-
-    .partners h2 {
-        font-size: 22px;
-        text-align: center;
-    }
-
-    .partners-image ul {
-        margin-top: 20px;
-        justify-content: center;
-        gap: 20px;
-    }
-
-    .partners-image li {
-        min-width: 80px;
-    }
-
-    .partners-container img {
-        height: 30px;
-    }
-
-
-    .commitments,
-    .howitworks,
-    .ourwork,
-    .ourteam,
-    .testimonial,
-    .help,
-    .bottom {
-        padding: 40px 0;
-    }
-
+    
     .commitments-container,
     .howitworks-container,
     .ourteam-container,
@@ -1651,61 +1690,40 @@ footer {
         text-align: center;
         gap: 30px;
     }
-
-    .commitments-text,
+    
     .howitworks-text p {
         max-width: 100%;
+        text-align: center;
     }
-
-    .commitments-text span,
-    .howitworks-text span,
+    
     .ourwork-desc span,
+    .cta-banner-desc span,
     .ourteam-container span,
     .testimonial-desc span,
     .help-faq span {
         font-size: var(--section-title-mobile);
     }
-
-    .commitments-text p,
-    .howitworks-text p,
-    .howitworks-info p,
-    .ourwork-desc p,
-    .ourteam-container p,
-    .help-faq p {
-        font-size: var(--body-text-mobile);
-    }
-
+    
     .learn-more {
-        margin-top: 20px;
+        margin-top: 30px;
         justify-content: center;
     }
-
-    .learn-more a,
-    .more-faq a {
-        font-size: 16px;
-    }
-
-    .commitments-info>div {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
+    
     .revenue,
     .audience,
     .trust,
     .awards {
         align-items: center;
     }
-
-
+    
     .howitworks-desc img {
-        margin: 20px auto 0;
+        margin: 30px auto 0;
     }
-
+    
     .howitworks-info {
         width: 100%;
     }
-
+    
     .discovery,
     .strategy,
     .execution,
@@ -1713,259 +1731,602 @@ footer {
         flex-direction: column;
         text-align: center;
         align-items: center;
-        gap: 15px;
+        margin-top: 30px;
     }
-
-    .strategy,
-    .execution,
-    .measurment {
-        margin-top: 25px;
+    
+    .howitworks-info p {
+        max-width: 100%;
     }
-
-    .howitworks-info span {
-        font-size: 20px;
-    }
-
-
-    .ourwork-container {
-        gap: 30px;
-    }
-
+    
     .ourwork-img {
         flex-direction: column;
         align-items: center;
-        gap: 25px;
     }
-
-    .ourwork-img p {
-        font-size: 20px;
+    
+    .cta-banner-desc{
+        height: 280px; 
+        object-fit: scale-down;
     }
-
-    .ourwork-container button,
-    .ourteam-container button,
-    .cta-banner2-confirm button,
-    .bottom-wrapper button {
-        font-size: 16px;
-        padding: 12px 30px;
-    }
-
-
-    .cta-banner-desc,
+    
     .cta-banner2-desc {
         height: auto;
-        max-width: 100%;
+        position: relative;
     }
-
-    .cta-banner-desc>div,
-    .cta-banner2-desc>div {
-        grid-template-columns: 1fr;
-        padding: 25px 15px;
-        text-align: center;
-        gap: 20px;
+    
+    .cta-banner2-desc > img {
+        width: 100%;
+        height: 40vh; 
+        object-fit: cover;
     }
-
-    .cta-banner-desc span {
-        max-width: 100%;
-        font-size: 28px;
+    
+    .cta-banner2-info {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr; 
+        align-items: center;
+        padding: 20px 15px;
     }
-
-    .cta-banner2-desc span {
-        max-width: 100%;
-        font-size: 30px;
-    }
-
-    .cta-banner-confirm,
+    
     .cta-banner2-confirm {
+        align-items: start;
+        text-align: start;
+
+        width: 100%;
+    }
+    
+    .cta-banner2-confirm p {
+        font-size: var(--body-text-mobile);
+        margin-bottom: 8px;
+    }
+    
+    .cta-banner2-confirm button {
+        font-size: 18px;
+        padding: 6px 10px;
+        min-width: 70%;
+    }
+    
+    .cta-banner2-info > div:last-child {
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
         align-items: center;
     }
-
+    
+    .cta-banner2-info > div:last-child img {
+        max-width: 100%;
+        height: auto;
+        max-height: 60vh; 
+        object-fit: contain;
+    }
+    
+    .cta-banner-desc>div {
+        grid-template-columns: 1fr;
+        padding: 20px 15px; 
+        text-align: center;
+    }
+    
+    .cta-banner2-desc span {
+        font-size: var(--section-title-mobile);
+    }
+    
+    .cta-banner-desc span{
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    .cta-banner-confirm {
+        align-items: center;
+    }
+    
     .cta-banner-confirm p {
         max-width: 100%;
-        font-size: 16px;
     }
-
-    .cta-banner-confirm button {
-        font-size: 16px;
-        padding: 12px 30px;
-        margin-top: 20px;
-    }
-
-    .cta-banner2-confirm button {
-        margin-top: 30px;
-    }
-
-    .cta-banner2-info>div:last-child {
-        margin-top: 15px;
-    }
-
-    .cta-banner2-info img {
-        max-width: 250px;
-    }
-
+    
     .ourteam-wrapper {
         flex-direction: column;
         gap: 30px;
         align-items: center;
     }
-
+    
     .ourteam-container p {
         max-width: 100%;
-        margin-top: 15px;
     }
-
-    .ourteam-container button {
-        margin-top: 30px;
-    }
-
+    
     .testimonial-desc {
         justify-content: center;
         flex-direction: column;
         text-align: center;
-        gap: 15px;
     }
-
-    .testimonial-navigation {
-        gap: 10px;
-    }
-
-    .testimonial-container .right,
-    .testimonial-container .left {
-        width: 60px;
-        height: 60px;
-        font-size: 20px;
-    }
-
+    
     .people {
-        margin-top: 30px;
         justify-content: flex-start;
     }
-
-    .amelia,
-    .jacob,
-    .jacob2 {
-        min-width: 280px;
-        padding: 20px;
-        min-height: 250px;
-    }
-
-    .amelia-info span,
-    .jacob-info span,
-    .jacob2-info span {
-        font-size: 20px;
-    }
-
-    .amelia-info p,
-    .jacob-info p,
-    .jacob2-info p {
-        font-size: 16px;
-    }
-
-    .amelia-desc p,
-    .jacob-desc p,
-    .jacob2-desc p {
-        font-size: 14px;
-    }
-
+    
     .help-faq {
         align-items: center;
         text-align: center;
     }
-
+    
     .help-faq p {
         max-width: 100%;
-        margin-bottom: 20px;
     }
-
+    
     .help-container-faq {
         width: 100%;
+        margin-bottom: 40px; 
+        text-align: start;
     }
-
-    .help-container-faq>div {
+    
+    .help-confirm {
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    
+    .help-confirm input {
+        width: 90%;
+        max-width: 300px; 
+        margin: 0 auto 15px; 
+        display: block;
+    }
+    
+    .more-faq {
+        justify-content: center;
+    }
+    
+    .bottom-wrapper {
+        text-align: center;
+        margin-bottom: 40px; 
+    }
+    
+    .bottom-container table {
+        margin: 0 auto;
+    }
+    
+    .hero {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .hero-image-container {
+        order: 1;
+        margin-bottom: 30px; 
+    }
+    
+    .hero-content {
+        order: 2;
+    }
+    
+    .hero-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px; 
+    }
+    
+    .hero-form input {
+        width: 100%;
+        max-width: 300px; 
+        margin-right: 0;
+    }
+    
+    .hero-form button {
+        width: 100%;
+        max-width: 300px; 
+    }
+    .footer-container {
         padding: 20px 15px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+/* Extra Small (xs): 0 - 575px */
+@media (max-width: 575px) {
+    :root {
+        --h1-mobile: 36px;
+        --section-title-mobile: 28px;
+        --body-text-mobile: 14px;
+    }
+    
+    .hamburger-toggle {
+        display: block;
+    }
+    
+    .nav-container ul {
+        display: none;
+    }
+    
+    .cta-btn{
+        display: none;
+    }
+    
+    .hamburger {
+        width: 50%;
+    }
+    .hamburger button{
+        width: 40vw;
+        font-size: 0.8rem;
+    }
+    .nav-container,
+    .partners-container,
+    .commitments-container,
+    .howitworks-container,
+    .ourwork-container,
+    .cta-banner-container,
+    .ourteam-container,
+    .testimonial-container,
+    .cta-banner2-container,
+    .help-container,
+    .bottom-container,
+    .footer-container {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+    
+    .navbar {
+        height: 60px;
     }
 
-    .help-container-faq span {
-        font-size: 15px;
+    .nav-container .logo,
+    .bottom-wrapper .logo {
+        font-size: 20px;
     }
-
+    
+    .mobile-menu-button {
+        display: block;
+    }
+    
+    .hero {
+        max-width: 100%;
+        padding: 25px 15px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .hero-text h1 {
+        font-size: var(--h1-mobile);
+        margin: 0 auto 15px;
+    }
+    
+    .hero-text p {
+        font-size: var(--body-text-mobile);
+    }
+    
+    .commitments-container,
+    .howitworks-container,
+    .ourteam-container,
+    .help-container,
+    .bottom-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 25px;
+    }
+    
+    .howitworks-text p {
+        max-width: 100%;
+        text-align: center;
+        font-size: var(--body-text-mobile);
+    }
+    
+    .ourwork-desc span,
+    .cta-banner-desc span,
+    .ourteam-container span,
+    .testimonial-desc span,
+    .help-faq span {
+        font-size: var(--section-title-mobile);
+    }
+    
+    .learn-more {
+        margin-top: 25px;
+        justify-content: center;
+    }
+    
+    .revenue,
+    .audience,
+    .trust,
+    .awards {
+        align-items: center;
+    }
+    
+    .howitworks-desc img {
+        margin: 20px auto 0;
+        max-width: 100%;
+    }
+    
+    .howitworks-info {
+        width: 100%;
+    }
+    
+    .discovery,
+    .strategy,
+    .execution,
+    .measurment {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        margin-top: 25px;
+    }
+    
+    .howitworks-info p {
+        max-width: 100%;
+        font-size: var(--body-text-mobile);
+    }
+    
+    .ourwork-img {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .ourwork-img img {
+        max-width: 100%;
+    }
+    
+    .cta-banner-desc{
+        height: 45vh;
+        object-fit: scale-down;
+    }
+    
+    .cta-banner2-desc {
+        height: auto;
+        position: relative;
+    }
+    
+    .cta-banner2-desc > img {
+        width: 100%;
+        height: 40vh;
+        object-fit: cover;
+    }
+    
+    .cta-banner2-info {
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        padding: 0px 10px;
+    }
+    
+    .cta-banner2-confirm {
+        align-items: start;
+        text-align: start;
+        font-size: 0.5rem;
+        width: 40vw;
+        height: 40vh;
+    }
+    
+    .cta-banner2-confirm p {
+        font-size: var(--body-text-mobile);
+    }
+    
+    .cta-banner2-confirm button {
+        font-size: 12px;
+        padding: 6px 10px;
+        min-width: 60%;
+    }
+    
+    .cta-banner2-info > div:last-child {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .cta-banner2-info > div:last-child img {
+        max-width: 50vw;
+        height: auto;
+        max-height: 50vh;
+        object-fit: contain;
+    }
+    
+    .cta-banner-desc>div {
+        grid-template-columns: 1fr;
+        padding: 15px 10px;
+        text-align: center;
+    }
+    
+    .cta-banner2-desc span {
+        font-size: var(--section-title-mobile);
+    }
+    
+    .cta-banner-desc span{
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    .cta-banner-confirm {
+        align-items: center;
+    }
+    
+    .cta-banner-confirm p {
+        max-width: 100%;
+        font-size: var(--body-text-mobile);
+    }
+    
+    .ourteam-wrapper {
+        flex-direction: column;
+        gap: 25px;
+        align-items: center;
+    }
+    
+    .ourteam-container p {
+        max-width: 100%;
+        font-size: var(--body-text-mobile);
+    }
+    
+    .testimonial-desc {
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .testimonial-desc p {
+        font-size: var(--body-text-mobile);
+    }
+    .amelia-info,
+    .jacob-info,
+    .jacob2-info {
+        margin-bottom: 30px;
+    }
+    .people {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .people-card {
+        width: 100%;
+    }
+    
+    .help-faq {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .help-faq p {
+        max-width: 100%;
+        font-size: var(--body-text-mobile);
+    }
+    
+    .help-container-faq {
+        width: 100%;
+        margin-bottom: 30px;
+        text-align: start;
+    }
+    
     .help-confirm {
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        width: 100%;
     }
-
+    
     .help-confirm input {
         width: 100%;
-        max-width: 280px;
-        height: 50px;
-        margin-right: 0;
-        margin-bottom: 10px;
+        max-width: 250px;
+        margin: 0 auto 12px;
+        display: block;
+        padding: 8px 12px;
         font-size: 14px;
     }
-
+    
     .help-confirm button {
         width: 100%;
-        max-width: 280px;
-        height: 50px;
+        max-width: 250px;
+        padding: 8px 12px;
         font-size: 14px;
-        padding: 16px;
     }
-
+    
     .more-faq {
         justify-content: center;
     }
-
-    .more-faq a {
-        font-size: 16px;
-    }
-
-
+    
     .bottom-wrapper {
-        max-width: 100%;
         text-align: center;
+        margin-bottom: 30px;
     }
-
-    .bottom-wrapper ul {
-        gap: 30px;
-        margin-top: 30px;
-        margin-bottom: 40px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .bottom-wrapper button {
-        max-width: 200px;
-    }
-
+    
     .bottom-container table {
         margin: 0 auto;
+        font-size: 14px;
+    }
+    
+    .bottom-container table td {
+        padding: 10px;
+    }
+    
+    .hero {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .hero-image-container {
+        order: 1;
+        margin-bottom: 25px;
+    }
+    
+    .hero-image-container img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .hero-content {
+        order: 2;
+    }
+    
+    .hero-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
         width: 100%;
     }
-
-    .bottom-container td {
-        padding-right: 15px;
-        padding-bottom: 25px;
-        font-size: 13px;
+    
+    .hero-form input {
+        width: 100%;
+        max-width: 250px;
+        margin-right: 0;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+    
+    .hero-form button {
+        width: 100%;
+        max-width: 250px;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+    
+    .partners-container {
+        height: auto;
+        padding: 30px 15px;
+    }
+    
+    .partners h2 {
+        font-size: 22px;
         text-align: center;
+        margin-bottom: 20px;
     }
-
-    footer {
-        min-height: 100px;
-        padding: 25px 0;
-    }
-
-    .footer-container {
+    
+    .partners-image ul {
         flex-direction: column;
-        text-align: center;
-        gap: 15px;
+        align-items: center;
+        gap: 20px;
     }
-
-    .term {
+    
+    .partners-image li {
+        min-width: auto;
+        width: 80%;
+        margin: 0;
+    }
+    
+    .partners-image img {
         max-width: 100%;
+        height: auto;
+    }
+    
+    .footer-container {
+        padding: 20px 15px;
+        display: flex;
         justify-content: center;
-        gap: 12px;
+        text-align: center;
+    }
+    
+    .footer-text {
+        font-size: 12px;
     }
 }
 
-
-/** NEED FIX < 991px Media query **/
