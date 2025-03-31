@@ -1,4 +1,4 @@
-# Figma to HTML - Responsive Conversion
+# Figma to HTML - Responsive Design
 
 This project is a responsive conversion of a Figma design into a fully functional website using **HTML, CSS, and JavaScript**.
 
